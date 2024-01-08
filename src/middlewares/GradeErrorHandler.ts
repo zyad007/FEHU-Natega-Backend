@@ -11,4 +11,3 @@ export const gradeErrorHanlder = (err: CustomError, req: Request, res: Response,
     })
 
 }
-
