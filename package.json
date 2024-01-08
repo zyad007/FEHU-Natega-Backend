@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rimraf ./build && tsc",
+    "build": "rimraf ./dist && tsc",
     "dev": "npx nodemon",
-    "start": "pnpm run build && node build/index.js"
+    "start": "pnpm run build && node dist/index.js",
+    "z": "git add . && git commit -m 'z' && git push origin zyad"
   },
   "keywords": [],
   "author": "",
