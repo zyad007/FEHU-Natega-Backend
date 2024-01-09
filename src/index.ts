@@ -1,10 +1,10 @@
 import express, { json } from "express";
 import gradeRouter from "./routers/grades";
 import { globalErrorHandler } from "./middlewares/GlobalErrorHandler";
-
 import dotenv from 'dotenv'
 
 dotenv.config()
+console.log('ENV:' + process.env.NODE_ENV);
 
 const app = express();
 const port = process.env.PORT || 3000;
