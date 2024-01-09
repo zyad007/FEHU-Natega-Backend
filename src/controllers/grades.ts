@@ -1,5 +1,6 @@
 import { RequestHandler } from "express";
 import NotFoundError from "../errors/NotFoundError";
+import * as db from '../db/index'
 
 export const addGrade: RequestHandler = ( req, res ) => {
     const name = req.body.name;
@@ -10,16 +11,13 @@ export const addGrade: RequestHandler = ( req, res ) => {
     res.status(201).send({ message: 'added grade successfully' })
 }
 
-export const getGrades: RequestHandler = (req, res) => {
+export const getGrades: RequestHandler = async (req, res) => {
 
-    if( 1 === 1) {
-        throw new NotFoundError('Error GET grades', 1)
-    }
+    const {rows} = await db.query('SELECT * FROM grade', [])
 
-    res.status(200).send([
-        {name: "Zyad"},
-        {name: "Anazz"}
-    ])
+    console.log(rows);
+    
+    res.send()
 } 
 
 export const deleteGrade: RequestHandler<{id:string}> = (req, res) => {
