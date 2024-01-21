@@ -17,5 +17,5 @@ app.use('/grades', gradeRouter);
 app.use(globalErrorHandler)
 
 app.listen(port, () => {
-    console.log('server listening on port: ' + port);
+    console.log('Server listening on port: ' + port);
 })
