@@ -39,3 +39,9 @@ CREATE TABLE students(
     header_id int,
     foreign KEY (header_id) REFERENCES headers(id)
 );
+
+CREATE TABLE admins (
+    id SERIAL PRIMARY KEY, 
+    username VARCHAR(50),
+    password VARCHAR(255)
+);
