@@ -3,7 +3,6 @@ import UserModel from "../models/user.model";
 import CustomError from "../errors/CustomError";
 import User from "../interfaces/User";
 import { UserCreateType } from "../schema/user.create";
-import DataBaseError from "../errors/DatabaseError";
 import BadRequest from "../errors/BadRequest";
 
 export const getUserById: RequestHandler<{ id: number }> = async (req, res, next) => {

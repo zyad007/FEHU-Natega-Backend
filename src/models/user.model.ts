@@ -3,8 +3,6 @@ import * as db from '../index'
 import { query } from "../db";
 import NotFoundError from "../errors/NotFoundError";
 import CustomError from "../errors/CustomError";
-import DataBaseError from "../errors/DatabaseError";
-import { DatabaseError } from "pg";
 import { hash } from "bcrypt";
 
 type Constructor<T> = { new(...args: any[]): T }

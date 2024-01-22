@@ -1,5 +1,4 @@
 import { DatabaseError, Pool } from 'pg'
-import DataBaseError from '../errors/DatabaseError';
 
 const pool = new Pool();
 pool.on('connect', () => {
