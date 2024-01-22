@@ -3,7 +3,7 @@ import { bodyValidation } from "../middlewares/validtation.middleware";
 import { LoginSchema, LoginType } from "../schema/login";
 import UserModel from "../models/user.model";
 import bcrypt from "bcrypt";
-import NotAuthorized from "../errors/NotAuthorizedError";
+import NotAuthorized from "../errors/NotAuthorized";
 import { sign } from "jsonwebtoken";
 import { auth } from "../middlewares/auth.middleware";
 

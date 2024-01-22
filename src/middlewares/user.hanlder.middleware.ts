@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express"
 import CustomError from "../errors/CustomError"
 import BadRequest from "../errors/BadRequest"
 import { DatabaseError } from "pg";
-import NotAuthorized from "../errors/NotAuthorizedError";
+import NotAuthorized from "../errors/NotAuthorized";
 
 export const userErrorHandler = (err: CustomError, req: Request, res: Response, next: NextFunction) => {
 
