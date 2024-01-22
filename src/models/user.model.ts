@@ -1,7 +1,7 @@
 import User from "../interfaces/User";
 import * as db from '../index'
 import { query } from "../db";
-import NotFoundError from "../errors/NotFoundError";
+import NotFound from "../errors/NotFound";
 import CustomError from "../errors/CustomError";
 import { hash } from "bcrypt";
 
@@ -25,7 +25,7 @@ export default class UserModel implements User {
         const user: User = rows[0]
 
         if (!user) {
-            throw new NotFoundError(
+            throw new NotFound(
                 `There is no User with ID : ${id}`
             )
         }

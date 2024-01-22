@@ -1,6 +1,6 @@
 import CustomError from "./CustomError";
 
-class NotFoundError extends CustomError {
+class NotFound extends CustomError {
     public name: 'NotFoundError'
     public message: string;
 
@@ -11,4 +11,4 @@ class NotFoundError extends CustomError {
     }
 }
 
-export default NotFoundError
+export default NotFound

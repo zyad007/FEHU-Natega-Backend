@@ -1,9 +1,9 @@
 import { NextFunction, Request, Response } from "express";
 import RequestWithUser from "../interfaces/RequestWithUser";
-import NotAuthorized from "../errors/NotAuthorizedError";
+import NotAuthorized from "../errors/NotAuthorized";
 import UserModel from "../models/user.model";
 import { decode, verify } from 'jsonwebtoken'
-import NotFoundError from "../errors/NotFoundError";
+import NotFound from "../errors/NotFound";
 import { Token } from "../interfaces/Token";
 
 
