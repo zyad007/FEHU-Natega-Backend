@@ -1,6 +1,7 @@
 import express, { json } from "express";
-import gradeRouter from "./routers/grades";
-import { globalErrorHandler } from "./middlewares/GlobalErrorHandler";
+import { globalErrorHandler } from "./middlewares/global.handler.middleware";
+import userRouter from "./api/user.route";
+import accountRouter from "./api/account.route";
 
 console.log('ENV:' + process.env.NODE_ENV);
 
@@ -11,10 +12,11 @@ const port = process.env.PORT || 3000;
 app.use(json());
 
 // Routers Middleware
-app.use('/grades', gradeRouter);
+app.use('/users', userRouter);
+app.use('/account', accountRouter)
 
 // Error Hadler Middleware
-app.use(globalErrorHandler)
+app.use(globalErrorHandler);
 
 app.listen(port, () => {
     console.log('Server listening on port: ' + port);

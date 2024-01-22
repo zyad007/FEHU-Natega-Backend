@@ -3,13 +3,11 @@ import CustomError from "./CustomError";
 class NotAuthorized extends CustomError {
     public name: 'NotAuthorized'
     public message: string;
-    public code: number
 
-    constructor(message: string ,code: number) {
-        super(message, 'NotAuthorized', code)
+    constructor(message: string = '') {
+        super('NotAuthorized', message)
         this.name = 'NotAuthorized'
         this.message = message
-        this.code = code
     }
 }
 
