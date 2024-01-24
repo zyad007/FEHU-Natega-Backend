@@ -6,6 +6,7 @@ import bcrypt from "bcrypt";
 import NotAuthorized from "../errors/NotAuthorized";
 import { sign } from "jsonwebtoken";
 import { auth } from "../middlewares/auth.middleware";
+import { SessionModel } from "../models/session.model";
 
 export const login : RequestHandler = async (req, res, next) => {
     const { username, password }: LoginType = req.body;
@@ -19,11 +20,17 @@ export const login : RequestHandler = async (req, res, next) => {
         return next(new NotAuthorized('Invalid password'));
     }
 
+    // const newSession = await SessionModel.
+
     const token = sign({id: user.id, createdAt: Date.now}, process.env.SECRET as string)
 
 
     return res.status(200).send({
         token
     })
+    
+}
+
+export const logout : RequestHandler = async (req, res, next) => {
     
 }

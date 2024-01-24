@@ -45,3 +45,10 @@ CREATE TABLE admins (
     username VARCHAR(50),
     password VARCHAR(255)
 );
+
+CREATE TABLE sessions (
+    id serial PRIMARY KEY,
+    start_date TIMESTAMP NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES admins(id)
+)
