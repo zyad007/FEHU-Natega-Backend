@@ -1,5 +1,19 @@
 import { query } from "../db";
 import { Session } from "../interfaces/Session";
+import { BaseModel } from "./base.model";
+
+export class SessionModelNew extends BaseModel<Session, SessionModelNew>('sessions', () => SessionModelNew) implements Session {
+
+    id: number;
+    startDate: Date;
+    userId: number;
+
+    constructor(session: Session) {
+        super();
+        Object.assign(this, session);
+    }
+
+}
 
 export class SessionModel implements Session {
 
@@ -19,10 +33,6 @@ export class SessionModel implements Session {
         const sessionDb: Session = rows[0];
         return new SessionModel(sessionDb);
     }
-
-    // public async save(): Promise {
-
-    // }
 
     public static async getById(id: number): Promise<SessionModel | undefined> {
         const { rows } = await query('SELECT * FROM sessions WHERE id=$1', [id]);
@@ -66,3 +76,4 @@ export class SessionModel implements Session {
     //     }
     // }
 }
+

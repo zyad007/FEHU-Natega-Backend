@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import BadRequestError from "../errors/BadRequest";
+import { Result } from "../dto/Result";
 
 export const globalErrorHandler = (err: Error, req: Request, res: Response, next: NextFunction ) => {
 
@@ -11,12 +12,15 @@ export const globalErrorHandler = (err: Error, req: Request, res: Response, next
         status = 500
     }
 
-    res.status(status).send(
+    res.status(status).send(new Result(
+        false,
+        '',
         {
             handler: 'GLOBAL_ERROR_HANDLER',
             name: err.name,
             message: err.message || 'Something failed!',
         }
+    )
     )
 
 }

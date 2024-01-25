@@ -1,11 +1,9 @@
-import { any } from "zod";
 import { query } from "../db";
 import Base from "../interfaces/Base";
-import { Session } from "../interfaces/Session";
 
 type ChildConstructor<T, K> = new (x: T) => K;
 
-function BaseModel<T extends Base, K>(TABLE_NAME: string, ChildClass: any) {
+export function BaseModel<T extends Base, K>(TABLE_NAME: string, ChildClass: any) {
 
     abstract class BaseModel {
         
@@ -94,20 +92,3 @@ function BaseModel<T extends Base, K>(TABLE_NAME: string, ChildClass: any) {
 
     return BaseModel;
 }
-
-class SessionModel extends BaseModel<Session, SessionModel>('sessions', () => SessionModel) {
-
-    constructor(public session: Session) {
-        super()
-    }
-}
-
-
-console.log('aa');
-
-
-SessionModel.save({ id: 13, startDate: new Date(), userId: 8 }).then(x => {
-    console.log(x);
-})
-
-// SessionModel.print({id:0,startDate: new Date(), userId: 8})
