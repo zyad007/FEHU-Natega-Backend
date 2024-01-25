@@ -1,4 +1,7 @@
+import { Session } from "./Session";
+
 export interface Token {
     id: number,
-    createdAt: number
+    createdAt: Date,
+    session: Session
 }
