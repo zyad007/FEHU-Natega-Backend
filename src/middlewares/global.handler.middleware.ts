@@ -8,6 +8,16 @@ export const globalErrorHandler = (err: Error, req: Request, res: Response, next
 
     if(err instanceof BadRequestError) {
         status = 400;
+
+        return res.status(status).send(new Result(
+            false,
+            '',
+            {
+                ...err
+            }
+        )
+        )
+
     }else {
         status = 500
     }
