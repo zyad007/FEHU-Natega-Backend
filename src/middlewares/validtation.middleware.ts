@@ -20,3 +20,22 @@ export const bodyValidation = (schema: AnyZodObject) => {
     }
 
 } 
+
+export const paramValidation = (schema: AnyZodObject) => {
+
+    return async (req: Request, res: Response, next: NextFunction) => {
+
+        try {
+            await schema.safeParseAsync(req.params);
+            return next();
+        }
+        catch(error) {
+            if(error instanceof ZodError) {
+                return next(new BadRequest('Invalid payload', error.issues.map(x => x.message)));
+            }
+            throw next(new BadRequest(JSON.stringify(error)));
+        }
+        
+    }
+
+} 

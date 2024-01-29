@@ -2,7 +2,7 @@ import { Router } from "express";
 import * as userController from '../controllers/user.controller'
 import { userErrorHandler } from "../middlewares/user.hanlder.middleware";
 import { bodyValidation } from "../middlewares/validtation.middleware";
-import { UserCreateSchema } from "../schema/user.create";
+import { UserCreateSchema } from "../schema/user.create.body";
 import { auth } from "../middlewares/auth.middleware";
 
 

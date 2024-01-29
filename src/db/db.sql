@@ -52,3 +52,21 @@ CREATE TABLE sessions (
     user_id INT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES admins(id)
 )
+
+ALTER TABLE headers 
+    ADD COLUMN sub1 VARCHAR(50),
+    ADD COLUMN sub2 VARCHAR(50),
+    ADD COLUMN sub3 VARCHAR(50),
+    ADD COLUMN sub4 VARCHAR(50),
+    ADD COLUMN sub5 VARCHAR(50),
+    ADD COLUMN sub6 VARCHAR(50);
+    
+ALTER TABLE students 
+    DROP COLUMN dep,
+    DROP COLUMN year,
+    DROP COLUMN term;
+
+ALTER TABLE headers
+    ADD COLUMN dep INT,
+    ADD COLUMN year INT,
+    ADD COLUMN term INT;
